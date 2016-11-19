@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bienvenido al 7 y medio</title>
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css"></style>
+	
+</head>
+<body>
+	<header>
+		<div id="logo">
+			<div id="zm"><img src="img/logo.png"></div>
+			<div id="empresa"><p>ZM-GAMES</p></div>
+		</div>
+		<div id="titulo"><h1>ZUBIRI-MANTEO's 7 and 1/2</h1></div>
+		<div id="RRSS">
+			<div id="fb"><i class="fa fa-facebook-square" aria-hidden="true"><a href="https://www.facebook.com/carlos.villarcenteno">Facebook</a></i></div>
+			<div id="gp"><i class="fa fa-google-plus-square" aria-hidden="true"><a href="https://plus.google.com/u/0/109032561772401656261">Google +</a></i></div>
+			<div id="gh"><i class="fa fa-github" aria-hidden="true"><a href="https://github.com/CarlosVillar76/7YMEDIO">GitHub</a></i></div>
+		</div>
+	</header>
+	<content>
+		<div id="tapete">
+		<!--<img src="img/tapete2.jpg" style="visibility: hidden;" />-->
+			<div id="inicio">
+				<div id="formulario">
+					<label>Introduzca numero de Jugadores (max. 3 Jugadores):</label>
+					</br>
+					</br>
+					<form name="jugadores">
+						<input type="text" name="numJug" id="numJug">
+						<input type="button" name="aceptar" id="aceptar" value="Aceptar" onclick="numeroJug()">	
+					</form>
+				</div>
+				<div id="nombres">
+				</div>				
+			</div>
+			<div id="botones_juego_j1">
+				<div class="nomb_j" id="j1_nombre"><h2 id="jug1"></h2></div>
+				<div class="carta" id="j1_carta"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
+				<div class="plantar" id="j1_plantarse"><input type="button" class="boton_juego" value="Plantarse"></div>
+			</div>
+			<div id="botones_juego_j2">
+				<div class="nomb_j" id="j2_nombre"><h2 id="jug2"></h2></div>
+				<div class="carta" id="j2_carta"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
+				<div class="plantar" id="j2_plantarse"><input type="button" class="boton_juego" value="Plantarse"></div>
+			</div>
+			<div id="botones_juego_j3">
+				<div class="nomb_j" id="j3_nombre"><h2 id="jug3"></h2></div>
+				<div class="carta" id="j3_carta"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
+				<div class="plantar" id="j3_plantarse"><input type="button" class="boton_juego" value="Plantarse"></div>
+			</div>
+			<div id="botones_juego">
+				<div id="b_nombre"><h2 id="banca"></h2></div>
+				<div class="carta" id="b1"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
+				<div class="plantar" id="b2"><input type="button" class="boton_juego" value="Plantarse"></div>
+				<div id="b3"><input type="button" class="boton_juego" value="Reiniciar"></div>
+			</div>
+			<div id="reglas">
+				<div id="bot_reglas"><input type="button" id="b_reglas" value="Reglas" onclick="mostrarReglas()"></div>
+				<div id="text_reglas">
+					<h3>Las Siete y Media</h3>
+					<p>Las siete y media es un juego de naipes que utiliza la baraja española de 40 naipes.</p>
+					<p>El juego consiste en obtener siete puntos y medio, o acercarse a ello lo más posible.</p>
+					<p>Las cartas valen tantos puntos como su valor facial, excepto las figuras, que valen medio punto.</p>
+				</div>
+			</div>
+		</div>	
+	</content>
+	<footer>
+		<div id="pie">
+			
+		</div>
+	</footer>
+
+</body>
+<script type="text/javascript" src="scripts.js"></script>
+</html>

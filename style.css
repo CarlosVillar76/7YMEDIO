@@ -1,0 +1,164 @@
+header{
+	width: 1500px; 
+	height: 60px;
+}
+#logo{
+	width: 250px; 
+	height: 60px; 
+	float: left;
+}
+#zm{height: 60px; 
+	width: 60px; 
+	float: left;
+}
+#empresa{
+	height: 60px;
+	width: 190px;
+	float: right;
+}
+#empresa p{
+	color: black;
+	font-size: 25px;
+	text-align: center;
+}
+#titulo{
+	width: 1000px;
+	height: 60px;
+	background-color: black;
+	float: left;	
+}
+#titulo h1{
+	color: ivory;
+	font-family: serif;
+	text-align: center;	
+}
+#RRSS{
+	width: 250px;
+	height: 60px;
+	background-image: url();
+	float: right;
+}
+#RRSS a{
+	margin-left: 10px;
+	color: black;
+}
+#fb, #gp, #gh{
+	margin-left: 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+#tapete{
+	width: 1500px;
+	height: 891px;
+	background-image: url("img/tapete2.jpg");
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: cover;
+}
+#formulario{
+	padding-left: 30px;
+	color: white;
+	font-family: Georgia;
+}
+#nombres{
+	padding-left: 30px;
+	padding-top: 30px;
+	color: white;
+	font-family: Impact;
+}
+.hueco, #huecoBank{
+	height: 139px;
+	width: 100px;
+	border: 2px solid;
+}
+#botones_juego_j1{
+	width: 200px;
+	height: 50px;
+    position: absolute;
+    top: 80px;
+    left: 238px;
+    color: yellow;
+    visibility: hidden;
+}
+#botones_juego_j2{
+	width: 200px;
+	height: 50px;
+    position: absolute;
+    top: 26px;
+    left: 640px;
+    color: blue;
+    visibility: hidden;
+}
+#botones_juego_j3{
+	width: 200px;
+	height: 50px;
+    position: absolute;
+    top: 80px;
+    left: 1073px;
+    color: green;
+    visibility: hidden;
+}
+#botones_juego{
+	width: 300px;
+	height: 50px;
+    position: absolute;
+    bottom: 5px;
+    right: 600px;
+    color: red;
+    visibility: hidden;
+}
+.nomb_j{
+	width: 200px;
+	height: 25px;
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+.carta{
+	width: 100px;
+	height: 25px;
+	position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+.plantar{
+	width: 100px;
+	height: 25px;
+	position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+#b3{
+	width: 100px;
+	position: absolute;
+    bottom: 5px;
+    right: 0px;
+}
+#reglas{
+	width: 300px;
+	height: 400px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    visibility: hidden;
+}
+#text_reglas{
+	background-color: white;
+	visibility: hidden;
+}
+#text_reglas p{
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	text-align: justify;
+	font-family: Georgia;
+}
+#text_reglas h3{
+	margin-top: 5px;
+	text-align: justify;
+	font-family: Georgia;
+}
+#bot_reglas input{
+	float: right;
+}
