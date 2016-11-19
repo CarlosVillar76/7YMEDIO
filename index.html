@@ -36,25 +36,29 @@
 				</div>				
 			</div>
 			<div id="botones_juego_j1">
-				<div class="nomb_j" id="j1_nombre"><h2 id="jug1"></h2></div>
-				<div class="carta" id="j1_carta"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
-				<div class="plantar" id="j1_plantarse"><input type="button" class="boton_juego" value="Plantarse"></div>
+				<div class="nomb_j" id="j1_nombre"><h3 id="jug1"></h3></div>
+				<div class="marcador" id="j1_marc"></div>
+				<div class="carta"><input type="button" class="boton_juego" id="j1_carta" value="Carta" onclick="sacarCarta()"></div>
+				<div class="plantar"><input type="button" class="boton_juego" id="j1_plantarse" value="Plantarse" onclick="siguienteJugador()"></div>
 			</div>
 			<div id="botones_juego_j2">
-				<div class="nomb_j" id="j2_nombre"><h2 id="jug2"></h2></div>
-				<div class="carta" id="j2_carta"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
-				<div class="plantar" id="j2_plantarse"><input type="button" class="boton_juego" value="Plantarse"></div>
+				<div class="nomb_j" id="j2_nombre"><h3 id="jug2"></h3></div>
+				<div class="marcador" id="j2_marc"></div>
+				<div class="carta"><input type="button" class="boton_juego" id="j2_carta" value="Carta" onclick="sacarCarta()"></div>
+				<div class="plantar"><input type="button" class="boton_juego" id="j2_plantarse" value="Plantarse" onclick="siguienteJugador()"></div>
 			</div>
 			<div id="botones_juego_j3">
-				<div class="nomb_j" id="j3_nombre"><h2 id="jug3"></h2></div>
-				<div class="carta" id="j3_carta"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
-				<div class="plantar" id="j3_plantarse"><input type="button" class="boton_juego" value="Plantarse"></div>
+				<div class="nomb_j" id="j3_nombre"><h3 id="jug3"></h3></div>
+				<div class="marcador" id="j3_marc"></div>
+				<div class="carta"><input type="button" class="boton_juego" id="j3_carta" value="Carta" onclick="sacarCarta()"></div>
+				<div class="plantar"><input type="button" class="boton_juego" id="j3_plantarse" value="Plantarse" onclick="siguienteJugador()"></div>
 			</div>
 			<div id="botones_juego">
-				<div id="b_nombre"><h2 id="banca"></h2></div>
-				<div class="carta" id="b1"><input type="button" class="boton_juego" value="Carta" onclick="sacarCarta()"></div>
-				<div class="plantar" id="b2"><input type="button" class="boton_juego" value="Plantarse"></div>
-				<div id="b3"><input type="button" class="boton_juego" value="Reiniciar"></div>
+				<div id="b_nombre">BANCA</div>
+				<div id="b_marc"></div>
+				<div id="b1"><input type="button" class="boton_juego" id="banc_carta" value="Carta" onclick="sacarCarta()"></div>
+				<div id="b2"><input type="button" class="boton_juego" id="banc_plantarse" value="Plantarse" onclick="siguienteJugador()"></div>
+				<div id="b3"><input type="button" class="boton_juego" id="reiniciar" value="Reiniciar"></div>
 			</div>
 			<div id="reglas">
 				<div id="bot_reglas"><input type="button" id="b_reglas" value="Reglas" onclick="mostrarReglas()"></div>

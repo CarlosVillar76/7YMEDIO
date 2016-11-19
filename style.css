@@ -67,8 +67,8 @@ header{
 	font-family: Impact;
 }
 .hueco, #huecoBank{
-	height: 139px;
-	width: 100px;
+	height: 134px;
+	width: 96px;
 	border: 2px solid;
 }
 #botones_juego_j1{
@@ -108,11 +108,19 @@ header{
     visibility: hidden;
 }
 .nomb_j{
-	width: 200px;
+	width: 150px;
 	height: 25px;
 	position: absolute;
     top: 0px;
     left: 0px;
+    text-align: center;
+}
+.marcador{
+	width: 50px;
+	height: 25px;
+	position: absolute;
+    top: 0px;
+    right: 0px;
     text-align: center;
 }
 .carta{
@@ -129,11 +137,42 @@ header{
     bottom: 0px;
     right: 0px;
 }
-#b3{
+#b1{
+	height: 25px;
 	width: 100px;
 	position: absolute;
-    bottom: 5px;
+    bottom: 0px;
+    left: 0px;
+}
+#b2{
+	height: 25px;
+	width: 100px;
+	position: absolute;
+    bottom: 0px;
+    right: 100px;
+}
+#b3{
+	height: 25px;
+	width: 100px;
+	position: absolute;
+    bottom: 0px;
     right: 0px;
+}
+#b_nombre{
+	height: 25px;
+	width: 200px;
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+#b_marc{
+	height: 25px;
+	width: 100px;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: center;
 }
 #reglas{
 	width: 300px;
