@@ -27,19 +27,27 @@ var carta3 = document.getElementById("j3_carta");
 var planta1 = document.getElementById("j1_plantarse");
 var planta2 = document.getElementById("j2_plantarse");
 var planta3 = document.getElementById("j3_plantarse");
-var cartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40];
 var PosY = 188;
 var PosX = 280;
+var cartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40];
 var valorCarta;
 var j1_jugando = true;
 var j2_jugando = false;
 var j3_jugando = false;
+var j1_jugado = false;
+var j2_jugado = false;
+var j3_jugado = false;
 var banca_jugando = false;
 var puntJ = 0;
 var puntJ1 = 0;
 var puntJ2 = 0;
 var puntJ3 = 0;
 var puntBanca = 0;
+var j1_pasado = false;
+var j2_pasado = false;
+var j1_pasado = false;
+var banca_pasado = false;
+var nombJug = new Array();
 
 
 /*
@@ -93,9 +101,8 @@ de texto recien creadas y activará los botones para empezar a jugar.
 
 function empezarJuego(){
 
-	//creo las variables del los nombres de jugadores introducidos en las nuevas cajas de texto.
-	
-	var nombJug = new Array();
+	//creo las variables del los nombres de jugadores introducidos en las nuevas cajas de texto.	
+	//var nombJug = new Array();
 	for (var i = 0; i < listNomb.length; i++) {
 		nombJug[i] = listNomb[i].value;
 	}
@@ -176,7 +183,7 @@ function mostrarReglas(){
 function sacarCarta(){
 	
 	if(cartas.length > 1){ //si el array de cartas tiene mas de un elemento		
-
+		//alert(cartas);
 		//alert(cartas.length);
 		//numero aleatorio entre 1 y el numero de cartas en el array
 		var cartaSacada = Math.floor((Math.random() * cartas.length));
@@ -233,72 +240,136 @@ function sacarCarta(){
 			case 40: valorCarta = 0.5; break;
 		}
 		//borra esa carta del array
-		alert(cartas[cartaSacada]+"---"+parseFloat(valorCarta));   
-		cartas.splice((cartaSacada-1), 1);
-		//alert(cartaSacada+"---"+cartas.length);
+		//prueba para ver si coincide el valor con la carta
+		//alert(cartas[cartaSacada]+"---"+parseFloat(valorCarta));   
+		cartas.splice(cartaSacada, 1);
+		//alert(cartas+"//"+cartaSacada+"//"+cartas.length);
 
-	}else if(cartas.length == 1){ //si al array solo le queda una carta
+	}else if(cartas.length = 1){ //si al array solo le queda una carta
 
 		var imgCarta = document.createElement("img");
 		tapete.appendChild(imgCarta);
 		imgCarta.src = "img/"+cartas[0]+".jpg";
 		imgCarta.style.position = "absolute";
-		imgCarta.style.top = PosY+'px';
-		imgCarta.style.left = PosX+'px';
+		imgCarta.style.top = j1PosY+'px';
+		imgCarta.style.left = j1PosX+'px';
 		//cartas.splice(0, 1);
 		alert("Se han terminado las cartas!!!!");
-
 	}
 
 	//suma el valor de la carta al marcador del jugador
 	puntJ = parseFloat(puntJ+valorCarta);	
 
 	//prueba para ver si funciona la suma de valores
-	alert(puntJ);
+	//alert(puntJ);
 
 	//nueva posicion para la siguiente carta
 	PosY = PosY+40;
 
-	if(puntJ > 7.5){
+	//compruebo si tiene 7 y medio o si se ha pasado para que pase automaticamente al siguiente jugador o a la banca
+	if(puntJ == 7.5){
+		alert("Biennnn!!! Siete y medio!!!")
+		siguienteJugador();
+	}else if(puntJ > 7.5){
 		alert("Te has pasado!!!");
 		siguienteJugador();
 	}
-
 }
 
 function siguienteJugador(){
+
 	var jugador2 = document.getElementById("j2");
 	var jugador3 = document.getElementById("j3");
-	//comprueba que jugador esta jugando, lo pone en false y pasa a true el siguiente jugador si existe o a la banca.
-	if(j1_jugando == true && jugador2 != null){
+
+	//comprueba que jugador esta jugando, lo pone en false y pasa a true al siguiente jugador si existe o si no a la banca.
+	if(j1_jugando == true){
 		j1_jugando = false;
-		j2_jugando = true;
+		j1_jugado = true;
 		puntJ1 = puntJ;
 		marc1.innerHTML = puntJ1;
+		if(puntJ1 > 7.5){
+			j1_pasado = true;
+		}
 		puntJ = 0;
-		PosX = 690;
-		PosY = 134;
 		document.getElementById("j1_carta").disabled = true;
 		document.getElementById("j1_plantarse").disabled = true;
-		var botonesJuego2 = document.getElementById("botones_juego_j2");
-		botonesJuego2.style.visibility = "visible";		
-	}else if(j2_jugando == true && jugador3 != null){
+		if(jugador2 != null){			
+			j2_jugando = true;			
+			PosX = 690;
+			PosY = 134;			
+			var botonesJuego2 = document.getElementById("botones_juego_j2");
+			botonesJuego2.style.visibility = "visible";
+		}else{
+			banca_jugando = true;
+			PosX = 695;
+			PosY = 628;
+			var botonesJuego = document.getElementById("botones_juego");
+			botonesJuego.style.visibility = "visible";
+			
+			//prueba para banca automatica			
+			if(j1_pasado == true){
+				sacarCarta();
+				siguienteJugador();
+			}else{ 
+				do {
+					sacarCarta();				
+   				}while (puntJ < puntJ1);
+   				siguienteJugador();
+			}
+		}				
+	}else if(j2_jugando == true){
 		j2_jugando = false;
-		j3_jugando = true;
+		j2_jugado = true;
 		puntJ2 = puntJ;
 		marc2.innerHTML = puntJ2;
+		if(puntJ2 > 7.5){
+			j2_pasado = true;
+		}
 		puntJ = 0;
-		PosX = 1123;
-		PosY = 188;
 		document.getElementById("j2_carta").disabled = true;
 		document.getElementById("j2_plantarse").disabled = true;
-		var botonesJuego3 = document.getElementById("botones_juego_j3");
-		botonesJuego3.style.visibility = "visible";
+		if(jugador3 != null){			
+			j3_jugando = true;			
+			PosX = 1123;
+			PosY = 188;			
+			var botonesJuego3 = document.getElementById("botones_juego_j3");
+			botonesJuego3.style.visibility = "visible";
+		}else{			
+			banca_jugando = true;			
+			PosX = 695;
+			PosY = 628;			
+			var botonesJuego = document.getElementById("botones_juego");
+			botonesJuego.style.visibility = "visible";
+
+			if(j1_pasado == true && j2_pasado == true){
+				sacarCarta();
+				siguienteJugador();
+			}else if(j1_pasado == false && j2_pasado == true){
+				do {
+					sacarCarta();				
+   				}while (puntJ < puntJ1);
+   				siguienteJugador();
+			}else if(j1_pasado == true && j2_pasado == false){
+				do {
+					sacarCarta();				
+   				}while (puntJ < puntJ2);
+   				siguienteJugador();
+			}else{
+				do {
+					sacarCarta();				
+   				}while (puntJ < puntJ1 && puntJ < puntJ2);
+   				siguienteJugador();
+			}		
+		}
 	}else if(j3_jugando == true){
 		j3_jugando = false;
+		j3_jugado = true;
 		banca_jugando = true;
 		puntJ3 = puntJ;
 		marc3.innerHTML = puntJ3;
+		if(puntJ3 > 7.5){
+			j3_pasado = true;
+		}
 		puntJ = 0;
 		PosX = 695;
 		PosY = 628;
@@ -306,13 +377,90 @@ function siguienteJugador(){
 		document.getElementById("j3_plantarse").disabled = true;
 		var botonesJuego = document.getElementById("botones_juego");
 		botonesJuego.style.visibility = "visible";
-	}else{
+
+		if(j1_pasado == true && j2_pasado == true && j3_pasado == true){
+			sacarCarta();
+			siguienteJugador();
+		}else if(j1_pasado == false && j2_pasado == true && j3_pasado == true){
+			do {
+				sacarCarta();				
+   			}while (puntJ < puntJ1);
+   			siguienteJugador();
+		}else if(j1_pasado == true && j2_pasado == false && j3_pasado == true){
+			do {
+				sacarCarta();				
+   			}while (puntJ < puntJ2);
+   			siguienteJugador();
+		}else if(j1_pasado == true && j2_pasado == true && j3_pasado == false){
+			do {
+				sacarCarta();				
+   			}while (puntJ < puntJ3);
+   			siguienteJugador();
+		}else if(j1_pasado == false && j2_pasado == false && j3_pasado == true){
+			do {
+				sacarCarta();				
+   			}while (puntJ < puntJ1 && puntJ < puntJ2);
+   			siguienteJugador();
+		}else if(j1_pasado == false && j2_pasado == true && j3_pasado == false){
+			do {
+				sacarCarta();				
+   			}while (puntJ < puntJ1 && puntJ < puntJ3);
+   			siguienteJugador();
+		}else if(j1_pasado == true && j2_pasado == false && j3_pasado == false){
+			do {
+				sacarCarta();				
+   			}while (puntJ < puntJ2 && puntJ < puntJ3);
+   			siguienteJugador();
+		}else if(j1_pasado == false && j2_pasado == false && j3_pasado == false){
+			do {
+				sacarCarta();				
+   			}while (puntJ < puntJ1 && puntJ < puntJ2 && puntJ < puntJ3);
+   			siguienteJugador();
+		}			
+	}else if(banca_jugando == true){
 		banca_jugando = false;
 		puntBanca = puntJ;
-		marcB.innerHTML = puntBanca;		
+		marcB.innerHTML = puntBanca;
+		if(puntBanca > 7.5){
+			banca_pasado = true;
+		}		
 		document.getElementById("banc_carta").disabled = true;
 		document.getElementById("banc_plantarse").disabled = true;
+		comprobarGanador();			
 	}
+}
+
+function comprobarGanador(){
+
+	if(j1_jugado == true && j2_jugado == false){
+		if(puntJ1 < 8 && (puntJ1 > puntBanca || banca_pasado == true)){
+			alert("Enhorabuena "+nombJug[0]+" has ganado la partida!!!");
+		}else {
+			alert("La banca gana!!!");
+		}
+	}else if(j2_jugado == true && j3_jugado == false){		
+		if(puntJ1 < 8 && ((puntJ1 > puntJ2 || j2_pasado == true) && (puntJ1 > puntBanca || banca_pasado == true))){
+			alert("Enhorabuena "+nombJug[0]+" has ganado la partida!!!");
+		}else if(puntJ2 < 8 && ((puntJ2 > puntJ1 || j1_pasado == true) && (puntJ2 > puntBanca || banca_pasado == true))){
+			alert("Enhorabuena "+nombJug[1]+" has ganado la partida!!!");
+		}else{
+			alert("La banca gana!!!");
+		}
+	}else if(j3_jugado == true){	
+		if(puntJ1 < 8 && ((puntJ1 > puntJ2 || j2_pasado == true) && (puntJ1 > puntJ3 || j3_pasado == true) && (puntJ1 > puntBanca || banca_pasado == true))){
+			alert("Enhorabuena "+nombJug[0]+" has ganado la partida!!!");
+		}else if(puntJ2 < 8 && ((puntJ2 > puntJ1 || j1_pasado == true) && (puntJ2 > puntJ3 || j3_pasado == true) && (puntJ2 > puntBanca || banca_pasado == true))){
+			alert("Enhorabuena "+nombJug[1]+" has ganado la partida!!!");
+		}else if(puntJ3 < 8 && ((puntJ3 > puntJ2 || j2_pasado == true) && (puntJ3 > puntJ1 || j1_pasado == true) && (puntJ3 > puntBanca || banca_pasado == true))){
+			alert("Enhorabuena "+nombJug[2]+" has ganado la partida!!!");
+		}else{
+			alert("La banca gana!!!");
+		}
+	}	
+}
+
+function reiniciar(){
+	location.reload();
 }
 
 
