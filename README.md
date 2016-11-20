@@ -3,7 +3,7 @@ Juego de las 7 y media desarrollado en Javascript para el módulo de Desarrollo 
 
 El juego esta diseñado para 1 a 3 jugadores y la banca.
 
-Instrucciones
+Instrucciones:
 
 Se introduce en la caja de texto el numero de jugadores (1 a 3)
 
